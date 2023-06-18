@@ -6,12 +6,25 @@
   box-shadow: 0 1rem 2rem 0.5rem rgba(0, 0, 0, 0.075);
 
   display: grid;
-  grid-template-columns: [sidebar-start] 1fr [sidebar-end for-start] 2fr [form-end];
+  grid-template-columns: [sidebar-start] 1fr [sidebar-end form-start] 2fr [form-end];
 
   &__box {
-    padding: 3.6rem 6.4rem 12rem;
-    width: 63rem;
+    padding: 3.6rem 8.6rem 12rem;
+    width: 68rem;
     min-height: 60rem;
     position: relative;
   }
+}
+
+.step-form__sidebar {
+  background-image: url("assets/images/bg-sidebar-desktop.svg");
+  background-size: cover;
+  background-position-y: bottom;
+  height: 100%;
+  padding: 3.6rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
 }

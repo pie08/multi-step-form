@@ -28,6 +28,7 @@
     border: 1px solid $light-gray;
     padding: 2.4rem 3.2rem;
     border-radius: 1rem;
+    transition: all 0.2s;
 
     & input {
       display: none;
@@ -72,6 +73,7 @@
 
     &:hover {
       cursor: pointer;
+      border: 1px solid $purplish-blue;
     }
 
     &.checked .input--checkbox__check {

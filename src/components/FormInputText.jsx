@@ -4,7 +4,7 @@ export default function FormInputText({
   value,
   setValue,
   inputType = "text",
-  isRequired,
+  isRequired = false,
   validationError,
   formType,
 }) {

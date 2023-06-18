@@ -18,13 +18,19 @@ export default function App() {
   const [storage, setStorage] = useState(false);
   const [profile, setProfile] = useState(false);
 
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
   function handleInfoSubmit(e) {
     e.preventDefault();
-    if (!name) return setFormValidationError("name");
-    if (!email) return setFormValidationError("email");
-    if (!phone) return setFormValidationError("phone");
+    // if (!name) return setFormValidationError("name");
+    // if (!email) return setFormValidationError("email");
+    // if (!phone) return setFormValidationError("phone");
 
     setStep((step) => step + 1);
+  }
+
+  function handleFormConfirm() {
+    setIsConfirmed(true);
   }
 
   function handleNextStep(e) {
@@ -47,12 +53,12 @@ export default function App() {
 
   return (
     <div className="step-form">
-      <Sidebar>
+      <FormSidebar>
         <Step step={1} title={`Your info`} isActive={step >= 1} />
         <Step step={2} title="Select plan" isActive={step >= 2} />
         <Step step={3} title="Add-ons" isActive={step >= 3} />
         <Step step={4} title="Summary" isActive={step >= 4} />
-      </Sidebar>
+      </FormSidebar>
 
       {step === 1 && (
         <Box>
@@ -186,26 +192,31 @@ export default function App() {
         </Box>
       )}
 
-      {step === 4 && (
-        <Box>
-          <Header
-            title="Finishing up"
-            description="Double-check everything look OK before continuing."
-          />
+      {step === 4 &&
+        (!isConfirmed ? (
+          <Box>
+            <Header
+              title="Finishing up"
+              description="Double-check everything look OK before continuing."
+            />
 
-          <SelectionOverview
-            plan={selectedPlan}
-            isYearly={yearly}
-            isOnline={online}
-            isStorage={storage}
-            isProfile={profile}
-            onGoToStep={handleGoToStep}
-          />
+            <SelectionOverview
+              plan={selectedPlan}
+              isYearly={yearly}
+              isOnline={online}
+              isStorage={storage}
+              isProfile={profile}
+              onGoToStep={handleGoToStep}
+            />
 
-          <ButtonSecondary onClick={handlePrevStep}>Go Back</ButtonSecondary>
-          <ButtonConfirm>Confirm</ButtonConfirm>
-        </Box>
-      )}
+            <ButtonSecondary onClick={handlePrevStep}>Go Back</ButtonSecondary>
+            <ButtonConfirm onClick={handleFormConfirm}>Confirm</ButtonConfirm>
+          </Box>
+        ) : (
+          <Box>
+            <SubmissionWindow />
+          </Box>
+        ))}
     </div>
   );
 }
@@ -255,8 +266,8 @@ function ButtonUnderline({ children, onClick, className = "" }) {
   );
 }
 
-function Sidebar({ children }) {
-  return <div className="sidebar">{children}</div>;
+function FormSidebar({ children }) {
+  return <div className="step-form__sidebar">{children}</div>;
 }
 
 function Inputs({ gap, children }) {
@@ -397,6 +408,20 @@ function OverviewAddon({ isYearly, price, name }) {
       <span className="overview__addon-price">
         +${isYearly ? price * 10 : price}/{isYearly ? "yr" : "mo"}
       </span>
+    </div>
+  );
+}
+
+function SubmissionWindow() {
+  return (
+    <div className="form__submission">
+      <img src="assets/images/icon-thank-you.svg" alt="Checkmark" />
+      <h2>Thank you!</h2>
+      <p>
+        Thanks for confirming your subscription! We hope you have fun using our
+        platform. If you ever need support, please feel free to email us at
+        support@loremgaming.com
+      </p>
     </div>
   );
 }
