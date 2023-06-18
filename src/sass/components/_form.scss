@@ -1,0 +1,76 @@
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form__label {
+  font-family: inherit;
+  font-size: inherit;
+  color: $marine-blue;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: inherit;
+  padding: 1.6rem 3rem;
+  border-radius: 1rem;
+  transition: all 0.2s;
+
+  &--cta {
+    position: absolute;
+    color: $white;
+    background-color: $marine-blue;
+
+    right: 0;
+    bottom: 0;
+    translate: -50% -50%;
+
+    &:hover {
+      background-color: rgba($marine-blue, 0.95);
+    }
+  }
+
+  &--confirm {
+    position: absolute;
+    color: $white;
+    background-color: $purplish-blue;
+
+    right: 0;
+    bottom: 0;
+    translate: -50% -50%;
+
+    &:hover {
+      background-color: rgba($purplish-blue, 0.9);
+    }
+  }
+
+  &--secondary {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    translate: 50% -50%;
+
+    &:hover {
+      color: $marine-blue;
+    }
+  }
+
+  &--underline {
+    padding: 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $cool-gray;
+    border-bottom: 1px solid $cool-gray;
+    border-radius: 0;
+
+    &:hover {
+      color: $marine-blue;
+      border-bottom: 1px solid $marine-blue;
+    }
+  }
+}

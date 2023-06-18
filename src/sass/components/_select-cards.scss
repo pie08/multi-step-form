@@ -1,0 +1,44 @@
+.select {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.select-card {
+  border: 1px solid $light-gray;
+  border-radius: 1rem;
+  background-color: transparent;
+  width: 100%;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  transition: all 0.2s;
+
+  &__info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__img {
+    width: 5rem;
+  }
+
+  &__plan {
+    color: $marine-blue;
+    font-weight: 600;
+  }
+
+  &__savings {
+    color: $marine-blue;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: $magnolia;
+    border: 1px solid $purplish-blue;
+  }
+}

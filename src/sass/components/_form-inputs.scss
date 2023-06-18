@@ -1,0 +1,110 @@
+.input {
+  &--text {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1.4rem 1.2rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: inset 0 0 0 1px $cool-gray;
+    background: none;
+    font-weight: 600;
+    color: $marine-blue;
+    transition: all 0.2s;
+
+    &::placeholder {
+      color: $cool-gray;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px $marine-blue;
+    }
+  }
+
+  &--checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid $light-gray;
+    padding: 2.4rem 3.2rem;
+    border-radius: 1rem;
+
+    & input {
+      display: none;
+    }
+
+    &__text {
+      position: relative;
+      margin-left: 5rem;
+    }
+
+    &__check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid $light-gray;
+      position: absolute;
+      top: 50%;
+      left: -5rem;
+      translate: 0 -50%;
+    }
+
+    &__check img {
+      opacity: 0;
+      width: 70%;
+      height: 70%;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: $marine-blue;
+      margin-bottom: 0.5rem;
+    }
+
+    &__price {
+      margin-left: auto;
+      color: $purplish-blue;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.checked .input--checkbox__check {
+      background-color: $purplish-blue;
+
+      & img {
+        opacity: 1;
+      }
+    }
+
+    &.checked {
+      border: 1px solid $purplish-blue;
+      background-color: $magnolia;
+    }
+  }
+}
+
+.form-required-error {
+  & label {
+    position: relative;
+  }
+
+  & label::after {
+    content: "This field is required.";
+    display: block;
+    font-weight: 600;
+    color: $strawberry;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  & input {
+    box-shadow: inset 0 0 0 1px $strawberry;
+  }
+}
