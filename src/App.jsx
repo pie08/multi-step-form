@@ -22,9 +22,9 @@ export default function App() {
 
   function handleInfoSubmit(e) {
     e.preventDefault();
-    // if (!name) return setFormValidationError("name");
-    // if (!email) return setFormValidationError("email");
-    // if (!phone) return setFormValidationError("phone");
+    if (!name) return setFormValidationError("name");
+    if (!email) return setFormValidationError("email");
+    if (!phone) return setFormValidationError("phone");
 
     setStep((step) => step + 1);
   }
@@ -117,7 +117,7 @@ export default function App() {
                   onClick={handleSelectPlan}
                   isSelected={selectedPlan === "arcade"}
                   isYearly={yearly}
-                  image="/assets/images/icon-arcade.svg"
+                  image="/assets/images/icon-arcade.svg?raw"
                   plan="arcade"
                   price={9}
                 />
@@ -126,7 +126,7 @@ export default function App() {
                   onClick={handleSelectPlan}
                   isSelected={selectedPlan === "advanced"}
                   isYearly={yearly}
-                  image="/assets/images/icon-advanced.svg"
+                  image="/assets/images/icon-advanced.svg?raw"
                   plan="advanced"
                   price={12}
                 />
@@ -135,7 +135,7 @@ export default function App() {
                   onClick={handleSelectPlan}
                   isSelected={selectedPlan === "pro"}
                   isYearly={yearly}
-                  image="/assets/images/icon-pro.svg"
+                  image="/assets/images/icon-pro.svg?raw"
                   plan="pro"
                   price={15}
                 />
@@ -437,7 +437,7 @@ function OverviewAddon({ isYearly, price, name }) {
 function SubmissionWindow() {
   return (
     <div className="form__submission">
-      <img src="assets/images/icon-thank-you.svg" alt="Checkmark" />
+      <img src="assets/images/icon-thank-you.svg?raw" alt="Checkmark" />
       <h2>Thank you!</h2>
       <p>
         Thanks for confirming your subscription! We hope you have fun using our
