@@ -7,15 +7,47 @@
 html {
   // 1rem = 10px
   font-size: 62.5%;
+
+  // 900px
+  @media (max-width: 56.24em) {
+    font-size: 56.25%;
+  }
+
+  // 600px
+  @media (max-width: 37.5em) {
+    font-size: 50%;
+  }
+
+  // 400px
+  @media (max-width: 25em) {
+    font-size: 43.75%;
+  }
 }
 
 body {
+  position: relative;
   background-color: $magnolia;
   min-height: 100vh;
   padding: 2.4rem;
 
   display: grid;
+  grid-template-columns: 1fr;
   place-items: center;
+
+  // 800px
+  @media (max-width: 50em) {
+    padding: 12rem 2.4rem;
+    place-items: none;
+    align-items: start;
+    justify-items: center;
+  }
+}
+
+#root {
+  // 800px
+  @media (max-width: 50em) {
+    width: 100%;
+  }
 }
 
 button {

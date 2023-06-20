@@ -1,3 +1,9 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .form__group {
   display: flex;
   flex-direction: column;
@@ -44,14 +50,25 @@
   border-radius: 1rem;
   transition: all 0.2s;
 
+  // 800px
+  @media (max-width: 50em) {
+    padding: 2rem 3.6rem;
+  }
+
+  // 400px
+  @media (max-width: 25em) {
+    padding: 2.4rem 4.8rem;
+  }
+
   &--cta {
-    position: absolute;
+    margin-left: auto;
+    // position: absolute;
     color: $white;
     background-color: $marine-blue;
 
-    right: 0;
-    bottom: 0;
-    translate: -50% -50%;
+    // right: 0;
+    // bottom: 0;
+    // translate: -50% -50%;
 
     &:hover {
       background-color: rgba($marine-blue, 0.95);
@@ -59,13 +76,14 @@
   }
 
   &--confirm {
-    position: absolute;
+    margin-left: auto;
+    // position: absolute;
     color: $white;
     background-color: $purplish-blue;
 
-    right: 0;
-    bottom: 0;
-    translate: -50% -50%;
+    // right: 0;
+    // bottom: 0;
+    // translate: -50% -50%;
 
     &:hover {
       background-color: rgba($purplish-blue, 0.9);
@@ -73,10 +91,10 @@
   }
 
   &--secondary {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    translate: 50% -50%;
+    // position: absolute;
+    // left: 0;
+    // bottom: 0;
+    // translate: 50% -50%;
 
     &:hover {
       color: $marine-blue;
@@ -95,5 +113,20 @@
       color: $marine-blue;
       border-bottom: 1px solid $marine-blue;
     }
+  }
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+
+  // 800px
+  @media (max-width: 50em) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    padding: 2.4rem 2.4rem;
   }
 }

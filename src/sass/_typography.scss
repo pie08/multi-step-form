@@ -17,7 +17,12 @@ h3 {
 
   &__title {
     font-size: 4.2rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
+
+    // 600px
+    @media (max-width: 37.5em) {
+      font-size: 3.6rem;
+    }
   }
 
   &__description {

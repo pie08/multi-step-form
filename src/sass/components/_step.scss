@@ -26,6 +26,13 @@
     color: $marine-blue;
   }
 
+  &__text {
+    // 800px
+    @media (max-width: 50em) {
+      display: none;
+    }
+  }
+
   &__descriptor {
     text-transform: uppercase;
     color: $light-gray;

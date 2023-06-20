@@ -1,18 +1,36 @@
 .step-form {
-  max-width: 100rem;
+  max-width: 97rem;
   background-color: $alabaster;
   padding: 1.2rem;
   border-radius: 1.5rem;
   box-shadow: 0 1rem 2rem 0.5rem rgba(0, 0, 0, 0.075);
 
   display: grid;
-  grid-template-columns: [sidebar-start] 1fr [sidebar-end form-start] 2fr [form-end];
+  grid-template-columns: [sidebar-start] max-content [sidebar-end form-start] 1fr [form-end];
 
   &__box {
-    padding: 3.6rem 8.6rem 12rem;
-    width: 68rem;
+    padding: 3.6rem 8.6rem;
     min-height: 60rem;
     position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    // 800px
+    @media (max-width: 50em) {
+      position: static;
+      min-height: auto;
+    }
+
+    // 600px
+    @media (max-width: 37.5em) {
+      padding: 2.4rem 4.8rem;
+    }
+  }
+
+  // 800px
+  @media (max-width: 50em) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -27,4 +45,21 @@
   display: flex;
   flex-direction: column;
   gap: 3.6rem;
+
+  // 800px
+  @media (max-width: 50em) {
+    flex-direction: row;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25rem;
+    align-items: flex-start;
+    z-index: -10;
+    border-radius: 0;
+
+    background-position: 50% 80%;
+  }
 }

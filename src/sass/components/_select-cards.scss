@@ -1,6 +1,11 @@
 .select {
   display: flex;
   gap: 1.8rem;
+
+  // 600px
+  @media (max-width: 37.5em) {
+    flex-direction: column;
+  }
 }
 
 .select-card {
@@ -27,6 +32,7 @@
   &__plan {
     color: $marine-blue;
     font-weight: 600;
+    font-size: 1.8rem;
   }
 
   &__savings {
@@ -41,5 +47,11 @@
   &.active {
     background-color: $magnolia;
     border: 1px solid $purplish-blue;
+  }
+
+  // 600px
+  @media (max-width: 37.5em) {
+    flex-direction: row;
+    gap: 2.4rem;
   }
 }

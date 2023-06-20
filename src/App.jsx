@@ -76,7 +76,6 @@ export default function App() {
                 setValue={setName}
                 validationError={formValidationError}
                 formType="name"
-                // isRequired={true}
               />
               <FormInputText
                 title="Email Address"
@@ -86,7 +85,6 @@ export default function App() {
                 inputType="email"
                 validationError={formValidationError}
                 formType="email"
-                // isRequired={true}
               />
               <FormInputText
                 title="Phone Number"
@@ -95,11 +93,12 @@ export default function App() {
                 setValue={setPhone}
                 validationError={formValidationError}
                 formType="phone"
-                // isRequired={true}
               />
             </Inputs>
 
-            <ButtonCta>Next Step</ButtonCta>
+            <div className="btn-container">
+              <ButtonCta>Next Step</ButtonCta>
+            </div>
           </Form>
         </Box>
       )}
@@ -145,8 +144,12 @@ export default function App() {
               <SelectSubscription yearly={yearly} setYearly={setYearly} />
             </Inputs>
 
-            <ButtonSecondary onClick={handlePrevStep}>Go Back</ButtonSecondary>
-            <ButtonCta>Next Step</ButtonCta>
+            <div className="btn-container">
+              <ButtonSecondary onClick={handlePrevStep}>
+                Go Back
+              </ButtonSecondary>
+              <ButtonCta>Next Step</ButtonCta>-
+            </div>
           </Form>
         </Box>
       )}
@@ -186,8 +189,12 @@ export default function App() {
               />
             </Inputs>
 
-            <ButtonSecondary onClick={handlePrevStep}>Go Back</ButtonSecondary>
-            <ButtonCta>Next Step</ButtonCta>
+            <div className="btn-container">
+              <ButtonSecondary onClick={handlePrevStep}>
+                Go Back
+              </ButtonSecondary>
+              <ButtonCta>Next Step</ButtonCta>-
+            </div>
           </Form>
         </Box>
       )}
@@ -200,20 +207,28 @@ export default function App() {
               description="Double-check everything look OK before continuing."
             />
 
-            <SelectionOverview
-              plan={selectedPlan}
-              isYearly={yearly}
-              isOnline={online}
-              isStorage={storage}
-              isProfile={profile}
-              onGoToStep={handleGoToStep}
-            />
+            <Form>
+              <SelectionOverview
+                plan={selectedPlan}
+                isYearly={yearly}
+                isOnline={online}
+                isStorage={storage}
+                isProfile={profile}
+                onGoToStep={handleGoToStep}
+              />
 
-            <ButtonSecondary onClick={handlePrevStep}>Go Back</ButtonSecondary>
-            <ButtonConfirm onClick={handleFormConfirm}>Confirm</ButtonConfirm>
+              <div className="btn-container">
+                <ButtonSecondary onClick={handlePrevStep}>
+                  Go Back
+                </ButtonSecondary>
+                <ButtonConfirm onClick={handleFormConfirm}>
+                  Confirm
+                </ButtonConfirm>
+              </div>
+            </Form>
           </Box>
         ) : (
-          <Box>
+          <Box rows="1fr">
             <SubmissionWindow />
           </Box>
         ))}
@@ -221,8 +236,15 @@ export default function App() {
   );
 }
 
-function Box({ children }) {
-  return <div className="step-form__box">{children}</div>;
+function Box({ children, rows = "min-content 1fr" }) {
+  const style = {
+    "grid-template-rows": rows,
+  };
+  return (
+    <div className="step-form__box" style={style}>
+      {children}
+    </div>
+  );
 }
 
 function Header({ title, description }) {
