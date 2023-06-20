@@ -19,6 +19,10 @@
   gap: 4.8rem;
   transition: all 0.2s;
 
+  @media (min-width: 63em) {
+    min-width: 15rem;
+  }
+
   &__info-box {
     display: flex;
     flex-direction: column;
